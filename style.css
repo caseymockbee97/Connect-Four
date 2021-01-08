@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  --universalSize: 100px;
+  font-family: "Courier New", Courier, monospace;
+}
+/* source for animation: https://codepen.io/ericwshea/pen/EyzZQg */
+@keyframes expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+h1 {
+  text-align: center;
+}
+.gameContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: calc(var(--universalSize) * 7);
+  border-radius: 25px;
+  overflow: hidden;
+}
+.column {
+  background-image: url("/IMG/ConnectFourColumn.png");
+  background-size: contain;
+  display: flex;
+  flex-direction: column-reverse;
+  width: var(--universalSize);
+  height: calc(var(--universalSize) * 6);
+}
+.gamepiece {
+  width: var(--universalSize);
+  height: var(--universalSize);
+  clip-path: circle(40%);
+  animation: expand 0.3s ease-in-out;
+}
+.gamepiece.player1 {
+  background-color: black;
+}
+.gamepiece.player2 {
+  background-color: pink;
+}
+.playerIndicatorContainer {
+  width: calc(var(--universalSize) * 7);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.playerIndicatorContainer h2 {
+  text-align: center;
+}
+.indicator {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.indicator .player1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  width: 100px;
+  transition: display 0.9s;
+}
+
+.indicator .player2 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  transition: display 0.9s;
+}
+.playerScoreBox .player1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  width: 100px;
+}
+.playerScoreBox .player2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+footer {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+.modalContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 60vh;
+
+  animation: expand 0.5s ease-in-out;
+}
+.modalMessage {
+  color: antiquewhite;
+  font-size: 95px;
+}
+.scoreTally {
+  float: left;
+}
+.playerScoreBox {
+  display: flex;
+  align-items: center;
+}
+#reset,
+#rematch {
+  font-size: 24px;
+}
+
+.objective {
+  width: 400px;
+  max-height: 10vh;
+  float: right;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>connect four practice</title>
+    <link href="/style.css" rel="stylesheet" media="all" />
+  </head>
+  <body>
+    <h1>Connect Four</h1>
+    <div class="gameContainer">
+      <div class="column" id="column0"></div>
+      <div class="column" id="column1"></div>
+      <div class="column" id="column2"></div>
+      <div class="column" id="column3"></div>
+      <div class="column" id="column4"></div>
+      <div class="column" id="column5"></div>
+      <div class="column" id="column6"></div>
+    </div>
+    <div class="playerIndicatorContainer">
+      <h2>Whose turn is it?</h2>
+      <div class="indicator">
+        <div class="gamepiece player1">Player1</div>
+        <div class="gamepiece player2">Player2</div>
+      </div>
+    </div>
+
+    <div class="scoreTally">
+      <div class="playerScoreBox">
+        <div class="gamepiece player1">Player1</div>
+        <p>'s score: <span class="player1Score">0</span></p>
+      </div>
+      <div class="playerScoreBox">
+        <div class="gamepiece player2">Player2</div>
+        <p>'s score: <span class="player2Score">0</span></p>
+      </div>
+    </div>
+    <div class="objective">
+      <p>
+        Objective: "Connect four of your checkers in a row while preventing your
+        opponent from doing the same. But, look out -- your opponent can sneak
+        up on you and win the game!" — Milton Bradley, Connect Four "Pretty
+        Sneaky, Sis" television commercial,
+        <a href="https://en.wikipedia.org/wiki/Connect_Four" target="_blank"
+          >1977</a
+        >
+      </p>
+    </div>
+
+    <div class="modalContainer">
+      <div class="modal">
+        <div class="modalMessage"></div>
+        <div class="endGameButtons">
+          <button onClick="window.location.reload();" id="reset">
+            Reset Score
+          </button>
+          <button id="rematch">Rematch</button>
+        </div>
+      </div>
+    </div>
+    <footer>Coded by Casey Mockbee</footer>
+
+    <script src="/code.js"></script>
+  </body>
+</html>
