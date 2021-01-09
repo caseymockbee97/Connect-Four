@@ -28,6 +28,10 @@ h1 {
   flex-direction: column-reverse;
   width: var(--universalSize);
   height: calc(var(--universalSize) * 6);
+  border-left: 1px solid navy;
+}
+.column#column0 {
+  border-left: none;
 }
 .gamepiece {
   width: var(--universalSize);
@@ -133,7 +137,7 @@ h4 {
 
 footer {
   position: fixed;
-  bottom: 3px;
-  right: 3px;
+  bottom: 5px;
+  right: 5px;
   color: rgba(0, 0, 0, 0.3);
 }
