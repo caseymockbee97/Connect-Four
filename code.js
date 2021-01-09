@@ -1,4 +1,5 @@
 let playerState = 1;
+let playerWhoWentFirst = 1;
 let player1indicator = document.querySelector(".indicator .player1");
 let player2indicator = document.querySelector(".indicator .player2");
 let boardModel = [
@@ -28,8 +29,7 @@ let winCondtionFunction = function () {
         );
       }
     }
-    let placeHolderArray = verticleWinArray.join();
-    winConditionArray.push(placeHolderArray);
+    winConditionArray.push(verticleWinArray.join());
   };
   //horizontal win
   let horizontalWinCondition = function () {
@@ -41,8 +41,7 @@ let winCondtionFunction = function () {
         );
       }
     }
-    let placeHolderArray = horizontalWinArray.join();
-    winConditionArray.push(placeHolderArray);
+    winConditionArray.push(horizontalWinArray.join());
   };
   //leftdiagonal win
   let leftDiagonalWinCondition = function () {
@@ -59,8 +58,7 @@ let winCondtionFunction = function () {
         );
       }
     }
-    let placeHolderArray = leftDiagonalWinArray.join();
-    winConditionArray.push(placeHolderArray);
+    winConditionArray.push(leftDiagonalWinArray.join());
   };
   //rightdiagonal win
   let rightDiagonalWinCondition = function () {
@@ -77,8 +75,7 @@ let winCondtionFunction = function () {
         );
       }
     }
-    let placeHolderArray = rightDiagonalWinArray.join();
-    winConditionArray.push(placeHolderArray);
+    winConditionArray.push(rightDiagonalWinArray.join());
   };
   rightDiagonalWinCondition();
   leftDiagonalWinCondition();
@@ -186,7 +183,7 @@ let columnClickEvent = function (event) {
     }
   }
 };
-//scoreCounter
+//Rematch button
 let rematchClickEvent = function () {
   boardModel = [
     [null, null, null, null, null, null],
@@ -201,9 +198,18 @@ let rematchClickEvent = function () {
     document.querySelector(`#column${i}`).innerHTML = "";
   }
   document.querySelector(".modalContainer").style.display = "none";
-  playerState = 1;
-  player1indicator.style.display = "flex";
-  player2indicator.style.display = "none";
+  switch (playerWhoWentFirst) {
+    case 1:
+      playerState = 2;
+      player1indicator.style.display = "none";
+      player2indicator.style.display = "flex";
+      break;
+    case 2:
+      playerState = 1;
+      player1indicator.style.display = "flex";
+      player2indicator.style.display = "none";
+      break;
+  }
 };
 
 //all event listeners

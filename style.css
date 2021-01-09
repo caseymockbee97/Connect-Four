@@ -72,6 +72,15 @@ h1 {
   width: 100px;
   transition: display 0.9s;
 }
+.scoreTally {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+}
+.playerScoreBox {
+  display: flex;
+  align-items: center;
+}
 .playerScoreBox .player1 {
   display: flex;
   justify-content: center;
@@ -85,10 +94,12 @@ h1 {
   align-items: center;
   width: 100px;
 }
-footer {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
+.objective {
+  width: calc(var(--universalSize) * 7);
+  margin: 0 auto;
+}
+h4 {
+  margin-bottom: 0;
 }
 .modalContainer {
   display: none;
@@ -115,20 +126,14 @@ footer {
   color: antiquewhite;
   font-size: 95px;
 }
-.scoreTally {
-  float: left;
-}
-.playerScoreBox {
-  display: flex;
-  align-items: center;
-}
 #reset,
 #rematch {
   font-size: 24px;
 }
 
-.objective {
-  width: 400px;
-  max-height: 10vh;
-  float: right;
+footer {
+  position: fixed;
+  bottom: 3px;
+  right: 3px;
+  color: rgba(0, 0, 0, 0.3);
 }
