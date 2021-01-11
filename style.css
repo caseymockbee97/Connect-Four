@@ -45,7 +45,10 @@ h1 {
   background-color: pink;
 }
 .playerIndicatorContainer {
-  width: calc(var(--universalSize) * 7);
+  width: calc(var(--universalSize) * 3);
+  position: fixed;
+  top: 5px;
+  right: 5px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
