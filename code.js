@@ -27,7 +27,7 @@ let winCondtionFunction = function (mapArray, column, row) {
         verticleWinArray.push(mapArray[column][row + i]);
       }
     }
-    winConditionArray.push(verticleWinArray.join(""));
+    winConditionArray.push(verticleWinArray.join());
   };
   //horizontal win
   let horizontalWinCondition = function (mapArray, column, row) {
@@ -37,7 +37,7 @@ let winCondtionFunction = function (mapArray, column, row) {
         horizontalWinArray.push(mapArray[column + i][row]);
       }
     }
-    winConditionArray.push(horizontalWinArray.join(""));
+    winConditionArray.push(horizontalWinArray.join());
   };
   //leftdiagonal win
   let leftDiagonalWinCondition = function (mapArray, column, row) {
@@ -47,7 +47,7 @@ let winCondtionFunction = function (mapArray, column, row) {
         leftDiagonalWinArray.push(mapArray[column + i][column + i]);
       }
     }
-    winConditionArray.push(leftDiagonalWinArray.join(""));
+    winConditionArray.push(leftDiagonalWinArray.join());
   };
   //rightdiagonal win
   let rightDiagonalWinCondition = function (mapArray, column, row) {
@@ -57,7 +57,7 @@ let winCondtionFunction = function (mapArray, column, row) {
         rightDiagonalWinArray.push(mapArray[column + i][row - i]);
       }
     }
-    winConditionArray.push(rightDiagonalWinArray.join(""));
+    winConditionArray.push(rightDiagonalWinArray.join());
   };
   rightDiagonalWinCondition(mapArray, column, row);
   leftDiagonalWinCondition(mapArray, column, row);
@@ -65,14 +65,14 @@ let winCondtionFunction = function (mapArray, column, row) {
   horizontalWinCondition(mapArray, column, row);
   //Checks for win
   for (let i = 0; i < winConditionArray.length; i++) {
-    if (winConditionArray[i].includes("1111")) {
+    if (winConditionArray[i].includes("1,1,1,1")) {
       document.querySelector(".modalMessage").innerHTML = "Player 1 wins!";
       document.querySelector(".modalContainer").style.display = "flex";
       player1WinCounter += 1;
       document.querySelector(".player1Score").innerHTML = player1WinCounter;
       return "player1";
     }
-    if (winConditionArray[i].includes("2222")) {
+    if (winConditionArray[i].includes("2,2,2,2")) {
       document.querySelector(".modalMessage").innerHTML = "Player 2 wins!";
       document.querySelector(".modalContainer").style.display = "flex";
       player2WinCounter += 1;
