@@ -23,7 +23,6 @@ h1 {
 }
 .column {
   background-image: url("/IMG/ConnectFourColumn.png");
-  background-size: contain;
   display: flex;
   flex-direction: column-reverse;
   width: var(--universalSize);
