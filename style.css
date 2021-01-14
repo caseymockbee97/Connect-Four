@@ -22,7 +22,7 @@ h1 {
   overflow: hidden;
 }
 .column {
-  background-image: url("/IMG/ConnectFourColumn.png");
+  background-image: url("./IMG/ConnectFourColumn.png");
   display: flex;
   flex-direction: column-reverse;
   width: var(--universalSize);
