@@ -197,9 +197,6 @@ let rematchClickEvent = function () {
 };
 
 //all event listeners
-document.querySelector("#reset").addEventListener("click", function () {
-  location.reload();
-});
 document.querySelector("#rematch").addEventListener("click", rematchClickEvent);
 document.querySelector("#column0").addEventListener("click", columnClickEvent);
 document.querySelector("#column1").addEventListener("click", columnClickEvent);
@@ -208,3 +205,51 @@ document.querySelector("#column3").addEventListener("click", columnClickEvent);
 document.querySelector("#column4").addEventListener("click", columnClickEvent);
 document.querySelector("#column5").addEventListener("click", columnClickEvent);
 document.querySelector("#column6").addEventListener("click", columnClickEvent);
+
+let testArray1 = [
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, 1, 1, 1, 1, null],
+];
+let testCol1 = 6;
+let testRow1 = 0;
+function testWinCondition1() {
+  let result = winCondtionFunction(testArray1, testCol1, testRow1);
+  console.assert(
+    result === "player1",
+    JSON.stringify({
+      function: "winConditionFunction(testArray1, testCol1, testRow2)",
+      expected: "player1",
+      returned: result,
+    })
+  );
+}
+/* testWinCondition1(); */
+
+let testArray2 = [
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, 1],
+  [null, null, null, null, null, 1],
+  [null, null, null, null, null, 1],
+  [null, null, null, null, null, 1],
+  [null, null, null, null, null, null],
+];
+let testCol2 = 6;
+let testRow2 = 5;
+function testWinCondition2() {
+  let result = winCondtionFunction(testArray2, testCol2, testRow2);
+  console.assert(
+    result === "player1",
+    JSON.stringify({
+      function: "winConditionFunction(testArray1, testCol1, testRow2)",
+      expected: "player1",
+      returned: result,
+    })
+  );
+}
+/* testWinCondition2(); */
