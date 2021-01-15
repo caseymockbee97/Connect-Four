@@ -1,0 +1,132 @@
+:root {
+  --universal-unit: 40px;
+  --num-rows: 0;
+  --num-cols: 0;
+}
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+body {
+  text-align: center;
+}
+
+.maze-container {
+  width: calc(var(--universal-unit) * var(--num-cols));
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.row {
+  height: var(--universal-unit);
+  width: calc(var(--universal-unit) * var(--num-cols));
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.col {
+  height: var(--universal-unit);
+  width: var(--universal-unit);
+  margin: 0;
+}
+
+.floor {
+  background-image: url(../IMG/maze/water.jpg);
+  background-size: contain;
+}
+
+.wall {
+  background-image: url(../IMG/maze/wall.jpg);
+  background-size: contain;
+}
+
+.start {
+  background-image: url(../IMG/maze/start.jpg);
+  background-size: contain;
+}
+
+.finish {
+  background-image: url(../IMG/maze/treasure.jpg);
+  background-size: contain;
+}
+
+.character.col {
+  background-image: url(../IMG/maze/boat.png);
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.2s linear, left 0.2s linear;
+}
+.modal-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal h1 {
+  color: antiquewhite;
+  border-radius: 5px;
+}
+.modal button {
+  border-radius: 5px;
+  font-size: 25px;
+  color: antiquewhite;
+  background-color: rgba(22, 22, 22, 0.7);
+  transition: 0.5s;
+}
+.modal button:hover {
+  background-color: rgba(22, 22, 22, 0.9);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 300px;
+  width: 300px;
+  background-image: url(../IMG/maze/treasureChest.jpg); /* source: https://pbs.twimg.com/media/DkMEeZVWsAEn5i8?format=jpg&name=large */
+  background-size: contain;
+}
+
+.levelselector {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../IMG/maze/treasureChest.jpg);
+  width: 200px;
+  background-size: 200px;
+  background-position: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.levelButton {
+  width: 200px;
+  background-color: rgba(22, 22, 22, 0.5);
+  color: whitesmoke;
+  transition: 0.5s;
+}
+.levelButton:hover {
+  background-color: rgba(22, 22, 22, 0.9);
+  cursor: pointer;
+}
+
+#footer {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}

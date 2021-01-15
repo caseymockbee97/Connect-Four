@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <meta name="description" content="Kenzie" />
+    <meta name="author" content="Kenzie" />
+    <meta name="keywords" content="Kenzie" />
+
+    <!-- Title Page-->
+    <title>Kenzie Maze</title>
+
+    <!-- CSS-->
+    <link href="../styles/maze.css" rel="stylesheet" media="all" />
+  </head>
+
+  <body>
+    <h1>Find the treasure!</h1>
+    <div class="levelselector">
+      <button class="levelButton" id="level1">Level One</button>
+      <button class="levelButton" id="level2">Level Two</button>
+      <button class="levelButton" id="level3">Level Three</button>
+      <button class="levelButton" id="level4">Level Four</button>
+      <button class="levelButton" id="level5">Level Five</button>
+    </div>
+
+    <div class="maze-container"></div>
+    <div class="descriptionBox">
+      <p>
+        The goal of the game is to get to your burried treasure! <br />
+        To start the game select a level from above. <br />
+        Use your arrow keys to get to the burried treasure! X marks the spot!
+      </p>
+    </div>
+    <div class="modal-container">
+      <div class="modal">
+        <h1>You found the booty!</h1>
+        <button id="restart">Back to level selector</button>
+      </div>
+    </div>
+    <footer id="footer">
+      Coded by Casey Mockbee<br />Treasure image from
+      <a
+        href="https://pbs.twimg.com/media/DkMEeZVWsAEn5i8?format=jpg&name=large"
+        target="_blank"
+        >pbs</a
+      >
+    </footer>
+    <script src="../scripts/maze.js"></script>
+  </body>
+</html>

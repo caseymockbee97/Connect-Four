@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <meta name="description" content="Kenzie" />
+    <meta name="author" content="Kenzie" />
+    <meta name="keywords" content="Kenzie" />
+
+    <!-- Title Page-->
+    <title>Tower of Hanoi</title>
+
+    <!-- CSS-->
+    <link href="/styles/towersOfHanoi.css" rel="stylesheet" media="all" />
+  </head>
+
+  <body>
+    <!-- Your html here -->
+    <div class="game-container">
+      <h1>Towers of Hanoi</h1>
+      <div class="container">
+        <div id="tower1" class="tower">
+          <div id="disc1" class="disc"></div>
+          <div id="disc2" class="disc"></div>
+          <div id="disc3" class="disc"></div>
+          <div id="disc4" class="disc"></div>
+        </div>
+        <div id="tower2" class="tower"></div>
+        <div id="tower3" class="tower"></div>
+      </div>
+      <div class="labels">
+        <div class="label" id="start">Start</div>
+        <div class="label" id="offset">Offset</div>
+        <div class="label" id="end">End</div>
+      </div>
+      <div id="buttonDiv">
+        <button id="restart">Restart</button>
+      </div>
+
+      <div id="description">
+        <p>To start, click the box with the disc you want to move.</p>
+        <p>
+          The objective of the puzzle is to move the entire stack to another
+          box, obeying the following simple rules:
+        </p>
+        <ol>
+          <li>Only one disk can be moved at a time.</li>
+          <li>
+            Each move consists of taking the upper disk from one of the stacks
+            and placing it on top of another stack or on an empty box.
+          </li>
+          <li>No larger disk may be placed on top of a smaller disk.</li>
+        </ol>
+        <p>
+          Source:
+          <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi" target="_blank"
+            >wikipedia</a
+          >
+        </p>
+      </div>
+    </div>
+    <footer>Coded by Casey Mockbee and Brittney Cooper</footer>
+    <div class="modal-container">
+      <div class="modal"></div>
+    </div>
+    <script src="/scripts/towersOfHanoi.js"></script>
+  </body>
+</html>

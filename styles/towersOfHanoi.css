@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --universalUnit: 25vmax;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  background: seashell;
+}
+.game-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(var(--universalUnit) * 3);
+}
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: calc(var(--universalUnit) * 3);
+  height: var(--universalUnit);
+  border-radius: 5px;
+}
+.tower {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  border: 1px solid black;
+  width: var(--universalUnit);
+  height: var(--universalUnit);
+  background: silver;
+  border-radius: 5px;
+}
+
+.disc {
+  display: flex;
+  height: calc(var(--universalUnit) * 0.24);
+  border-radius: 3vmax;
+  box-shadow: 0 0 5px black;
+  margin: 1px 0;
+}
+
+#disc1 {
+  width: calc(var(--universalUnit) * 0.98);
+
+  background: lightcoral;
+}
+#disc2 {
+  width: calc(var(--universalUnit) * 0.75);
+  background: lightgreen;
+}
+#disc3 {
+  width: calc(var(--universalUnit) * 0.5);
+  background: lavender;
+}
+#disc4 {
+  width: calc(var(--universalUnit) * 0.25);
+  background: lightcyan;
+}
+.labels {
+  display: flex;
+  flex-direction: row;
+  width: calc(var(--universalUnit) * 3);
+}
+
+.label {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: var(--universalUnit);
+  font-size: 2rem;
+  height: 4rem;
+  background: linen;
+}
+
+.bar {
+  display: flex;
+  flex-grow: 1;
+  width: calc(var(--universalUnit) * 0.1);
+  background: black;
+}
+#description {
+  font-size: 1.5rem;
+}
+
+footer {
+  text-align: right;
+  font-size: 0.5rem;
+}
+
+#buttonDiv {
+  text-align: right;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 500px;
+  height: 332px;
+  background-image: url(../IMG/towersOfHanoi/goodJob.png);
+  background-size: cover;
+}
