@@ -11,58 +11,88 @@ let boardModel = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
 ];
-let userSelectedColumn = 0;
-let userSelectedRow = 0;
 
 player1WinCounter = 0;
 player2WinCounter = 0;
 
-let winCondtionFunction = function (mapArray, column, row) {
+let winConditionFunction = function (mapArray) {
   let winConditionArray = [];
+
   //column win
-  let verticalWinCondition = function (mapArray, column, row) {
-    let verticleWinArray = [];
-    for (let i = -10; i < 10; i++) {
-      if (row + i >= 0 && row + i < 6) {
-        verticleWinArray.push(mapArray[column][row + i]);
-      }
+  let columnArrayBuilder = function () {
+    for (let i = 0; i < 7; i++) {
+      winConditionArray.push(mapArray[i].join());
     }
-    winConditionArray.push(verticleWinArray.join());
   };
-  //horizontal win
-  let horizontalWinCondition = function (mapArray, column, row) {
-    let horizontalWinArray = [];
-    for (let i = -10; i < 10; i++) {
-      if (column + i >= 0 && column + i < 7) {
-        horizontalWinArray.push(mapArray[column + i][row]);
+
+  //row win
+  let rowArrayBuilder = function () {
+    for (let row = 0; row < 6; row++) {
+      let rowArray = [];
+      for (let col = 0; col < 7; col++) {
+        rowArray.push(mapArray[col][row]);
       }
+      winConditionArray.push(rowArray.join());
     }
-    winConditionArray.push(horizontalWinArray.join());
   };
-  //leftdiagonal win
-  let leftDiagonalWinCondition = function (mapArray, column, row) {
-    let leftDiagonalWinArray = [];
-    for (let i = -10; i < 10; i++) {
-      if (column + i >= 0 && column + i < 7 && row + i >= 0 && row + i < 6) {
-        leftDiagonalWinArray.push(mapArray[column + i][column + i]);
+
+  //Diagonals
+  //left side diagonal win
+  let diagonalFromLeftSideArrayBuilder = function () {
+    for (let i = 0; i < 6; i++) {
+      let itemsInDiagonal = 6 - i;
+      let placeHolderArray = [];
+      for (let j = 0; j < itemsInDiagonal; j++) {
+        placeHolderArray.push(mapArray[j][i + j]);
       }
+      winConditionArray.push(placeHolderArray.join());
     }
-    winConditionArray.push(leftDiagonalWinArray.join());
   };
-  //rightdiagonal win
-  let rightDiagonalWinCondition = function (mapArray, column, row) {
-    let rightDiagonalWinArray = [];
-    for (let i = -10; i < 10; i++) {
-      if (column + i >= 0 && column + i < 7 && row - i >= 0 && row - i < 6) {
-        rightDiagonalWinArray.push(mapArray[column + i][row - i]);
+
+  //left bottom diagonal win
+  let diagonalFromLeftBottomArrayBuilder = function () {
+    for (let i = 0; i < 6; i++) {
+      let itemsInDiagonal = 6 - i;
+      let placeHolderArray = [];
+      for (let j = 0; j < itemsInDiagonal; j++) {
+        placeHolderArray.push(mapArray[i + j + 1][j]);
       }
+      winConditionArray.push(placeHolderArray.join());
     }
-    winConditionArray.push(rightDiagonalWinArray.join());
   };
-  rightDiagonalWinCondition(mapArray, column, row);
-  leftDiagonalWinCondition(mapArray, column, row);
-  verticalWinCondition(mapArray, column, row);
-  horizontalWinCondition(mapArray, column, row);
+
+  //right bottom diagonal win
+  let diagonalFromRightBottomArrayBuilder = function () {
+    for (let i = 0; i < 6; i++) {
+      let itemsInDiagonal = i + 1;
+      let placeHolderArray = [];
+      for (let j = 0; j < itemsInDiagonal; j++) {
+        placeHolderArray.push(mapArray[j][i - j]);
+      }
+      winConditionArray.push(placeHolderArray.join());
+    }
+  };
+
+  //right side diagonal win
+  let diagonalFromRightSideArrayBuilder = function () {
+    for (let i = 0; i < 6; i++) {
+      let itemsInDiagonal = 6 - i;
+      let placeHolderArray = [];
+      for (let j = 0; j < itemsInDiagonal; j++) {
+        placeHolderArray.push(mapArray[j + i + 1][5 - j]);
+      }
+      winConditionArray.push(placeHolderArray.join());
+    }
+  };
+
+  //function calling
+  columnArrayBuilder();
+  rowArrayBuilder();
+  diagonalFromLeftSideArrayBuilder();
+  diagonalFromLeftBottomArrayBuilder();
+  diagonalFromRightBottomArrayBuilder();
+  diagonalFromRightSideArrayBuilder();
+
   //Checks for win
   for (let i = 0; i < winConditionArray.length; i++) {
     if (winConditionArray[i].includes("1,1,1,1")) {
@@ -80,6 +110,7 @@ let winCondtionFunction = function (mapArray, column, row) {
       return "player2";
     }
   }
+
   //checks for tie
   let nullCounter = 0;
   for (let i = 0; i < boardModel.length; i++) {
@@ -94,6 +125,7 @@ let winCondtionFunction = function (mapArray, column, row) {
     document.querySelector(".modalContainer").style.display = "flex";
   }
 };
+
 //columnClickEvent function
 let columnClickEvent = function (event) {
   let currentElement = event.currentTarget.id;
@@ -104,31 +136,24 @@ let columnClickEvent = function (event) {
   switch (currentElement) {
     case "column0":
       colArray = boardModel[0];
-      userSelectedColumn = 0;
       break;
     case "column1":
       colArray = boardModel[1];
-      userSelectedColumn = 1;
       break;
     case "column2":
       colArray = boardModel[2];
-      userSelectedColumn = 2;
       break;
     case "column3":
       colArray = boardModel[3];
-      userSelectedColumn = 3;
       break;
     case "column4":
       colArray = boardModel[4];
-      userSelectedColumn = 4;
       break;
     case "column5":
       colArray = boardModel[5];
-      userSelectedColumn = 5;
       break;
     case "column6":
       colArray = boardModel[6];
-      userSelectedColumn = 6;
       break;
   }
 
@@ -141,25 +166,23 @@ let columnClickEvent = function (event) {
           //adds player piece to DOM
           chosenPiece.className = "gamepiece player1";
           document.getElementById(`${currentElement}`).append(chosenPiece);
-          //sets row value
-          userSelectedRow = i;
+
           //changes player state and indicates it on the screen
           playerState = 2;
           player1indicator.style.display = "none";
           player2indicator.style.display = "flex";
-          winCondtionFunction(boardModel, userSelectedColumn, userSelectedRow);
+          winConditionFunction(boardModel);
           break;
         case 2:
           //adds player piece to DOM
           chosenPiece.className = "gamepiece player2";
           document.getElementById(`${currentElement}`).append(chosenPiece);
-          //sets row value
-          userSelectedRow = i;
+
           //changes player state and indicates it on the screen
           playerState = 1;
           player1indicator.style.display = "flex";
           player2indicator.style.display = "none";
-          winCondtionFunction(boardModel, userSelectedColumn, userSelectedRow);
+          winConditionFunction(boardModel);
           break;
       }
 
@@ -167,6 +190,7 @@ let columnClickEvent = function (event) {
     }
   }
 };
+
 //Rematch button
 let rematchClickEvent = function () {
   boardModel = [
@@ -205,51 +229,3 @@ document.querySelector("#column3").addEventListener("click", columnClickEvent);
 document.querySelector("#column4").addEventListener("click", columnClickEvent);
 document.querySelector("#column5").addEventListener("click", columnClickEvent);
 document.querySelector("#column6").addEventListener("click", columnClickEvent);
-
-let testArray1 = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, 1, 1, 1, 1, null],
-];
-let testCol1 = 6;
-let testRow1 = 0;
-function testWinCondition1() {
-  let result = winCondtionFunction(testArray1, testCol1, testRow1);
-  console.assert(
-    result === "player1",
-    JSON.stringify({
-      function: "winConditionFunction(testArray1, testCol1, testRow2)",
-      expected: "player1",
-      returned: result,
-    })
-  );
-}
-/* testWinCondition1(); */
-
-let testArray2 = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, 1],
-  [null, null, null, null, null, 1],
-  [null, null, null, null, null, 1],
-  [null, null, null, null, null, 1],
-  [null, null, null, null, null, null],
-];
-let testCol2 = 6;
-let testRow2 = 5;
-function testWinCondition2() {
-  let result = winCondtionFunction(testArray2, testCol2, testRow2);
-  console.assert(
-    result === "player1",
-    JSON.stringify({
-      function: "winConditionFunction(testArray1, testCol1, testRow2)",
-      expected: "player1",
-      returned: result,
-    })
-  );
-}
-/* testWinCondition2(); */
