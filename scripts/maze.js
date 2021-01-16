@@ -140,6 +140,7 @@ let runEventListener = function () {
 
   function logKey(e) {
     switch (e.code) {
+      case "KeyS":
       case "ArrowDown":
         if (
           selectedMap[charArrayLocation.row + 1][charArrayLocation.col] ===
@@ -152,7 +153,7 @@ let runEventListener = function () {
         }
 
         break;
-
+      case "KeyW":
       case "ArrowUp":
         if (
           selectedMap[charArrayLocation.row - 1][charArrayLocation.col] ===
@@ -165,6 +166,7 @@ let runEventListener = function () {
         }
 
         break;
+      case "KeyA":
       case "ArrowLeft":
         if (
           selectedMap[charArrayLocation.row][charArrayLocation.col - 1] ===
@@ -177,6 +179,7 @@ let runEventListener = function () {
         }
 
         break;
+      case "KeyD":
       case "ArrowRight":
         if (
           selectedMap[charArrayLocation.row][charArrayLocation.col + 1] ===
@@ -196,6 +199,7 @@ let runEventListener = function () {
     ) {
       setTimeout(function () {
         document.querySelector(".modal-container").style.display = "flex";
+        document.removeEventListener("keydown", logKey);
       }, 250);
     }
   }
