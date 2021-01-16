@@ -54,7 +54,7 @@ const level5 = [
   "WWWWWWWWWWWWWWWWWWWWWW",
 ];
 
-let selectedMap = 0;
+let selectedMap;
 
 let charArrayLocation = {
   row: 0,
@@ -204,11 +204,15 @@ let runEventListener = function () {
     }
   }
 };
+let buttonHTML = "";
+
+let levelSelectorButton = document.querySelector(".levelSelectorButton");
 
 let levelLoader = function (level) {
   mazeContainer.innerHTML = "";
   levelSelector.innerHTML = "";
   mazeContainer.append(startingPoint);
+  levelSelectorButton.style.display = "flex";
   selectedMap = level;
   createMaze(selectedMap);
   runEventListener();
@@ -233,3 +237,4 @@ level4Button.addEventListener("click", function () {
 level5Button.addEventListener("click", function () {
   levelLoader(level5);
 });
+levelSelectorButton.addEventListener("click", reload);

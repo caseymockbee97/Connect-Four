@@ -149,3 +149,19 @@ a.returnHome:hover {
   border: 3px solid darkgray;
   transition: border 0.2s;
 }
+
+.levelSelectorButton {
+  text-decoration: none;
+  cursor: pointer;
+  display: none;
+  margin: 0 auto;
+  color: initial;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.levelSelectorButton:hover {
+  border: 3px solid darkgray;
+  transition: border 0.2s;
+}
