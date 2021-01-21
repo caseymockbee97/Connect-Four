@@ -6,9 +6,7 @@
   --universalUnit: 25vmax;
   font-family: "Courier New", Courier, monospace;
 }
-body {
-  background: seashell;
-}
+
 .game-container {
   margin-left: auto;
   margin-right: auto;
@@ -16,6 +14,7 @@ body {
 }
 h1 {
   text-align: center;
+  text-shadow: 2px 2px lightgrey;
 }
 
 .container {
@@ -99,14 +98,16 @@ footer {
 }
 
 #buttonDiv {
-  text-align: right;
+  width: calc(var(--universalUnit) * 3);
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .modal-container {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: none;
@@ -115,10 +116,14 @@ footer {
 }
 
 .modal {
-  width: 500px;
-  height: 332px;
-  background-image: url(../IMG/towersOfHanoi/goodJob.png);
-  background-size: cover;
+  width: 700px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: beige;
+  text-shadow: 2px 2px #000000;
 }
 
 a.returnHome {
@@ -135,7 +140,20 @@ a.returnHome {
   left: 10px;
 }
 
-a.returnHome:hover {
+#restart {
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: initial;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+
+a.returnHome:hover,
+#restart:hover {
   border: 3px solid darkgray;
   transition: border 0.2s;
 }

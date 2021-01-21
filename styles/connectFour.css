@@ -12,6 +12,7 @@
 }
 h1 {
   text-align: center;
+  text-shadow: 2px 2px lightgrey;
 }
 .gameContainer {
   display: flex;
@@ -111,7 +112,7 @@ h4 {
   display: none;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;

@@ -6,7 +6,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
+h1 {
+  text-shadow: 2px 2px lightgrey;
+}
 a.button {
   text-decoration: none;
   justify-content: center;
