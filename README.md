@@ -1,15 +1,19 @@
-# Casey Mockbee Portfolios
+# Casey Mockbee Portfolio
 
-- source code is available on my github.
+# Connect Four was initially a group project that I worked on. While working in the group I created my own version of the game.
 
-# Connect Four was initially a group project that I adapted my code from
+- Group project code is here "https://github.com/KenzieAcademy-Students/se-q1-connect-four-usimmons"
 
-- Initial code is here "https://github.com/KenzieAcademy-Students/se-q1-connect-four-usimmons"
+- Connect Four files in this repo are "connectFour.js, connectFour.css, connectFour.html"
 
-# Tower's of Hanoi was a partner project
+# Tower's of Hanoi was a partner project.
 
 - Source code is here "https://github.com/KenzieAcademy-Students/se-q1-tower-of-hanoi-caseymockbee97"
 
-# Maze was an individual project
+- Towers of Hanoi files in this repo are "towersOfHanoi.js, towersOfHanoi.css, towersOfHanoi.html"
 
--Source code is here "https://github.com/KenzieAcademy-Students/se-q1-maze-caseymockbee97"
+# Maze was an individual project.
+
+- Source code is here "https://github.com/KenzieAcademy-Students/se-q1-maze-caseymockbee97"
+
+- Maze files in this repo are "maze.js, maze.css, maze.html"
