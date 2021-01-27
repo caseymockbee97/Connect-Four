@@ -24,7 +24,7 @@
 
 ## Maze (Find the treasure!)
 
-- Maze was an individual project and the code is mostly unchanged from the source code.
+- Maze was an individual project. The main changes from the original project were to make it more responsive. 
 
 - link to Maze demo "https://caseymockbee97.github.io/HTML/maze.html"
 
