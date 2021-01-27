@@ -3,7 +3,7 @@
 }
 
 :root {
-  --universalUnit: 25vmax;
+  --universalUnit: 25vmin;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -74,8 +74,8 @@ h1 {
   border: 1px solid black;
   border-radius: 5px;
   width: var(--universalUnit);
-  font-size: 2rem;
-  height: 4rem;
+  height: calc(var(--universalUnit) / 3);
+  font-size: 3vmin;
   background: linen;
 }
 
@@ -86,7 +86,7 @@ h1 {
   background: black;
 }
 #description {
-  font-size: 1.5rem;
+  font-size: 2vmin;
 }
 
 footer {
@@ -148,7 +148,8 @@ a.returnHome {
   color: initial;
   border: 1px solid gray;
   border-radius: 5px;
-  width: 150px;
+  width: var(--universalUnit);
+  font-size: 3vmin;
   cursor: pointer;
 }
 
