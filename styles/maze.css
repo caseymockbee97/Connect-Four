@@ -1,5 +1,5 @@
 :root {
-  --universal-unit: 40px;
+  --universal-unit: 75vmin;
   --num-rows: 0;
   --num-cols: 0;
 }
@@ -16,7 +16,7 @@ h1 {
 }
 
 .maze-container {
-  width: calc(var(--universal-unit) * var(--num-cols));
+  width: var(--universal-unit);
   background-color: gray;
   display: flex;
   flex-direction: column;
@@ -27,16 +27,16 @@ h1 {
 }
 
 .row {
-  height: var(--universal-unit);
-  width: calc(var(--universal-unit) * var(--num-cols));
+  height: calc(var(--universal-unit) / var(--num-cols));
+  width: var(--universal-unit);
   display: flex;
   flex-direction: row;
   margin: 0;
 }
 
 .col {
-  height: var(--universal-unit);
-  width: var(--universal-unit);
+  height: calc(var(--universal-unit) / var(--num-cols));
+  width: calc(var(--universal-unit) / var(--num-cols));
   margin: 0;
 }
 
@@ -63,10 +63,6 @@ h1 {
 .character.col {
   background-image: url(../IMG/maze/boat.png);
   background-size: contain;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: top 0.2s linear, left 0.2s linear;
 }
 .modal-container {
   height: 100vh;

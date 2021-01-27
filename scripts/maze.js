@@ -60,10 +60,6 @@ let charArrayLocation = {
   row: 0,
   col: 0,
 };
-let charVisibleLocation = {
-  top: 0,
-  left: 0,
-};
 let finishingArrayLocation = {
   row: 0,
   col: 0,
@@ -73,9 +69,6 @@ let finishingArrayLocation = {
 let mazeContainer = document.querySelector(".maze-container");
 let startingPoint = document.createElement("div");
 startingPoint.className = "col character";
-mazeContainer.append(startingPoint);
-let charWidth = document.querySelector(".col").offsetWidth;
-let charHeight = document.querySelector(".col").offsetHeight;
 
 // initializes level selectors
 let level1Button = document.querySelector("#level1");
@@ -109,21 +102,22 @@ let createMaze = function (mapArray) {
       switch (mapArray[row][col]) {
         case "W":
           colDiv.className = "col wall";
+          colDiv.id = `${row}-${col}`;
           break;
         case " ":
           colDiv.className = "col floor";
+          colDiv.id = `${row}-${col}`;
           break;
         case "S":
           colDiv.className = "col start";
-          charVisibleLocation.top = row * charHeight;
-          startingPoint.style.top = `${charVisibleLocation.top}px`;
-          charVisibleLocation.left = col * charWidth;
-          startingPoint.style.left = `${charVisibleLocation.left}px`;
+          colDiv.id = `${row}-${col}`;
+          colDiv.appendChild(startingPoint);
           charArrayLocation.row = row;
           charArrayLocation.col = col;
           break;
         case "F":
           colDiv.className = "col finish";
+          colDiv.id = `${row}-${col}`;
           finishingArrayLocation.row = row;
           finishingArrayLocation.col = col;
           break;
@@ -148,8 +142,10 @@ let runEventListener = function () {
           selectedMap[charArrayLocation.row + 1][charArrayLocation.col] === "F"
         ) {
           charArrayLocation.row += 1;
-          charVisibleLocation.top += charHeight;
-          startingPoint.style.top = `${charVisibleLocation.top}px`;
+          let newDiv = document.getElementById(
+            `${charArrayLocation.row}-${charArrayLocation.col}`
+          );
+          newDiv.appendChild(startingPoint);
         }
 
         break;
@@ -161,8 +157,10 @@ let runEventListener = function () {
           selectedMap[charArrayLocation.row - 1][charArrayLocation.col] === "F"
         ) {
           charArrayLocation.row -= 1;
-          charVisibleLocation.top -= charHeight;
-          startingPoint.style.top = `${charVisibleLocation.top}px`;
+          let newDiv = document.getElementById(
+            `${charArrayLocation.row}-${charArrayLocation.col}`
+          );
+          newDiv.appendChild(startingPoint);
         }
 
         break;
@@ -174,8 +172,10 @@ let runEventListener = function () {
           selectedMap[charArrayLocation.row][charArrayLocation.col - 1] === "F"
         ) {
           charArrayLocation.col -= 1;
-          charVisibleLocation.left -= charWidth;
-          startingPoint.style.left = `${charVisibleLocation.left}px`;
+          let newDiv = document.getElementById(
+            `${charArrayLocation.row}-${charArrayLocation.col}`
+          );
+          newDiv.appendChild(startingPoint);
         }
 
         break;
@@ -187,8 +187,10 @@ let runEventListener = function () {
           selectedMap[charArrayLocation.row][charArrayLocation.col + 1] === "F"
         ) {
           charArrayLocation.col += 1;
-          charVisibleLocation.left += charWidth;
-          startingPoint.style.left = `${charVisibleLocation.left}px`;
+          let newDiv = document.getElementById(
+            `${charArrayLocation.row}-${charArrayLocation.col}`
+          );
+          newDiv.appendChild(startingPoint);
         }
 
         break;
@@ -204,7 +206,6 @@ let runEventListener = function () {
     }
   }
 };
-let buttonHTML = "";
 
 let levelSelectorButton = document.querySelector(".levelSelectorButton");
 
