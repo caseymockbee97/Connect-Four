@@ -1,4 +1,4 @@
-# Casey Mockbee Portfolio
+# Only JS, CSS, and HTML for these projects
 
 - link to live demo "https://caseymockbee97.github.io/"
 
